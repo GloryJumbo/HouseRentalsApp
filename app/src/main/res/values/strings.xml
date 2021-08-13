@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">House Rentals App</string>
+    <string name="house_rent_app">House Rent App</string>
+    <string name="house_rental_app">House_Rental_App</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="forget_password">forget password</string>
+    <string name="sign_in">sign In</string>
+    <string name="new_user_sign_up">new User? sign Up</string>
+    <string name="welcome">Welcome</string>
+    <string name="signup_to_find_latest_houses">SignUp to find latest Houses</string>
+    <string name="email">Email</string>
+    <string name="phoneno">PhoneNo</string>
+    <string name="already_have_account_sign_in">Already have account? Sign in</string>
+    <string name="renter_password">Renter password</string>
+    <string name="main_title">Main Title</string>
+    <string name="sub_title">Sub Title</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="sign_up">SIGN UP</string>
+</resources>
