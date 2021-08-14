@@ -10,9 +10,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="40dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,67 +38,46 @@
             android:textColor="#FF0000"
             android:textSize="34sp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameLogin"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/username">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/btnUsernameSgnIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text">
+            android:layout_marginTop="25dp"
+            android:hint="@string/username"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="25sp" />
 
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordLogin"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/password"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/btnPasswordSgIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="25dp"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textSize="25sp" />
 
         <Button
-            android:id="@+id/signIn_btnLogin"
+            android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_shape"
-            android:text="@string/sign_in" />
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/signUp_btn"
+            android:id="@+id/btnSignUpSgn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_shape"
-            android:elevation="0dp"
-            android:text="@string/new_user_sign_up"/>
+            android:text="@string/new_user_register_here"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

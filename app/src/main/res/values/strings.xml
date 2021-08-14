@@ -17,4 +17,7 @@
     <string name="sub_title">Sub Title</string>
     <string name="repeat_password">Repeat password</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="register">Register</string>
+    <string name="account_already_exist">Account Already Exist</string>
+    <string name="new_user_register_here">New User! Register Here</string>
 </resources>

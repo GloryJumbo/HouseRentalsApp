@@ -52,69 +52,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameUp"
+        <EditText
+            android:id="@+id/RegUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterMaxLength="15"
             android:hint="@string/username"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginTop="25dp"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:importantForAutofill="no"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordUp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <EditText
+            android:id="@+id/RegPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:hint="@string/password"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rePasswordUp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:inputType="textPassword"
+            android:layout_marginTop="25dp"
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
+        <EditText
+            android:id="@+id/RegRePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
             android:hint="@string/repeat_password"
-            app:passwordToggleEnabled="true">
+            android:layout_marginTop="25dp"
+            app:passwordToggleEnabled="true"
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/sgnIn_btnUp"
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
             android:background="@drawable/button_shape"
-            android:text="@string/sign_up" />
+            android:layout_marginTop="35dp"
+            android:textSize="20sp"/>
         <Button
-            android:id="@+id/AlreadySgnUp_btnUp"
+            android:id="@+id/btnSignInReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/purple_700"
-            android:text="Already have Account! Go to Sign In Page"
-            tools:ignore="HardcodedText" />
-
-
+            android:text="@string/account_already_exist"
+            android:textAllCaps="false"
+            android:background="@drawable/button_shape"
+            android:layout_marginTop="35dp"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
