@@ -20,4 +20,7 @@
     <string name="register">Register</string>
     <string name="account_already_exist">Account Already Exist</string>
     <string name="new_user_register_here">New User! Register Here</string>
+    <string name="desTitle">DesTitle</string>
+    <string name="subtitle">SubTitle</string>
+    <string name="name">Name</string>
 </resources>
