@@ -23,4 +23,6 @@
     <string name="desTitle">DesTitle</string>
     <string name="subtitle">SubTitle</string>
     <string name="name">Name</string>
+    <string name="iam_admin">iam Admin</string>
+    <string name="sign_in_to_upload_apartments">Sign in to Upload Apartments</string>
 </resources>

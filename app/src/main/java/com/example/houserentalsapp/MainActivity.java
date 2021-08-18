@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     EditText usernameLog, passwordLog;
     Button signUp_btn, signIn_btnLog;
+    TextView adminLink;
 
     DBHelper myDB;
     @Override
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         passwordLog = findViewById(R.id.btnPasswordSgIn);
         signIn_btnLog = findViewById(R.id.btnSignIn);
         signUp_btn = findViewById(R.id.btnSignUpSgn);
+
+        adminLink = findViewById(R.id.adminPaneLink);
 
         myDB = new DBHelper(this);
 
@@ -50,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
             });
         signUp_btn.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(),SignUp.class);
+            startActivity(intent);
+        });
+        adminLink.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(),LoginAdminPanel.class);
             startActivity(intent);
         });
     }
