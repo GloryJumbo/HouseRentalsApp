@@ -78,18 +78,20 @@
             android:text="@string/new_user_register_here"
             android:textAllCaps="false"
             android:textSize="20sp" />
+
         <TextView
             android:id="@+id/adminPaneLink"
-            android:layout_width="wrap_content"
+            android:layout_width="-200dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="20dp"
-            android:text="@string/iam_admin"
-            android:textColor="#FF0000"
-            android:textSize="20sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/cambo"
+            android:text="@string/i_am_an_admin"
+            android:textAlignment="textStart"
+            android:textColor="@color/purple_500"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:gravity="left"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="23dp"
             tools:ignore="RtlHardcoded" />
 
     </LinearLayout>

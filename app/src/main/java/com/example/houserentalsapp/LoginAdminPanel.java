@@ -2,7 +2,6 @@ package com.example.houserentalsapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +16,9 @@ public class LoginAdminPanel extends AppCompatActivity {
 
         loginBtn = (Button) findViewById(R.id.btnSignIn2);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginAdminPanel.this, AdminPanel.class);
-               startActivity(intent);
-            }
+        loginBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginAdminPanel.this, AdminPanel.class);
+           startActivity(intent);
         });
 
     }

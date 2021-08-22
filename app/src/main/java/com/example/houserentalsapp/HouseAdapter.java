@@ -1,42 +1,75 @@
 package com.example.houserentalsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class HouseAdapter extends ArrayAdapter<House> {
-    private Context mContext;
-    private int mResource;
-    public HouseAdapter(@NonNull Context context, int resource, @NonNull ArrayList<House> objects) {
-        super(context, resource, objects);
+public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyViewHolder> {
 
-        this.mContext = context;
-        this.mResource = resource;
+    String[] data;
+    String[] data2;
+    int[] images;
+    Context context;
+
+    public HouseAdapter(Context zin, String[] s1, String[] s2, int[] emg){
+       context = zin;
+       data = s1;
+       data2 = s2;
+       images = emg;
+
     }
 
     @NonNull
+
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-       convertView  = layoutInflater.inflate(mResource, parent, false);
-        ImageView imageView = convertView.findViewById(R.id.image);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.row, parent, false);
+        return new MyViewHolder(view);
+    }
 
-        TextView textName = convertView.findViewById(R.id.textName);
-        TextView textDes = convertView.findViewById(R.id.textDes);
+    @Override
+    public void onBindViewHolder(@NonNull  HouseAdapter.MyViewHolder holder, int position) {
+        holder.mText1.setText(data[position]);
+       // holder.mText2.setText(data2[position]);
+        holder.mImage.setImageResource(images[position]);
 
-        imageView .setImageResource(getItem(position).getImage());
-        textName.setText(getItem(position).getName());
-        textDes.setText(getItem(position).getDes());
+        holder.houseDetails.setOnClickListener(view -> {
+            Intent intent = new Intent(context, HouseDetails.class);
+            intent.putExtra("data", data[position]);
+           // intent.putExtra("data2", data2[position]);
+            intent.putExtra("mImage", images[position]);
+            context.startActivity(intent);
+        });
 
-        return convertView;
+    }
+
+    @Override
+    public int getItemCount() {
+        return images.length;
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+        TextView mText1;
+        TextView mText2;
+        ImageView mImage;
+        ConstraintLayout houseDetails;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            mText1 = itemView.findViewById(R.id.textRow1);
+            mText2 = itemView.findViewById(R.id.textView2);
+            mImage = itemView.findViewById(R.id.rowView);
+            houseDetails = itemView.findViewById(R.id.houseDetails);
+        }
     }
 }

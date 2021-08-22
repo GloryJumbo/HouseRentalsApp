@@ -1,34 +1,32 @@
 package com.example.houserentalsapp;
 
 import android.os.Bundle;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomerPanel extends AppCompatActivity {
-
-    ListView listView;
+    RecyclerView recyclerView;
+    String[] s1;
+    String[] s2;
+    int[] images = {R.drawable.img1,R.drawable.img2, R.drawable.img3,R.drawable.img1,R.drawable.img5,
+            R.drawable.img1,R.drawable.img3,R.drawable.img5,R.drawable.img5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_panel);
 
-        listView = findViewById(R.id.listView);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        //creating add data
+        s1 = getResources().getStringArray(R.array.house_list);
+        s2 = getResources().getStringArray(R.array.description_id);
 
-        ArrayList<House> arrayList = new ArrayList<>();
-        arrayList.add(new House(R.drawable.img1, "Location:Matawale"  ,"Price : K300000"));
-        arrayList.add(new House(R.drawable.img2, "Location:Jali", "Price : k400000"));
-        arrayList.add(new House(R.drawable.img3, "Location:AirWing", "Price : K150000"));
-        arrayList.add(new House(R.drawable.img4, "Location:NewRoad", "Price : k 70000"));
-        arrayList.add(new House(R.drawable.img5, "Location:3 Miles", "Price : K55000"));
+        HouseAdapter houseAdapter = new HouseAdapter(this, s1, s2, images);
+        recyclerView.setAdapter(houseAdapter);
 
-        //we make customerAdapter
-        HouseAdapter houseAdapter = new HouseAdapter(this,R.layout.row,arrayList);
-        listView.setAdapter(houseAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }

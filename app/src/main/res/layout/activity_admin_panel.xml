@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".AdminPanel">
 
-
-
+    <TextView
+        android:id="@+id/adminText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="356dp"
+        android:text="@string/this_is_where_the_admin_will_upload_house_information_for_tenants_view_so_am_still_processing_it"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
