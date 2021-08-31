@@ -20,10 +20,10 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyViewHolder
     Context context;
 
     public HouseAdapter(Context zin, String[] s1, String[] s2, int[] emg){
-       context = zin;
-       data = s1;
-       data2 = s2;
-       images = emg;
+        context = zin;
+        data = s1;
+        data2 = s2;
+        images = emg;
 
     }
 
@@ -39,13 +39,13 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull  HouseAdapter.MyViewHolder holder, int position) {
         holder.mText1.setText(data[position]);
-       // holder.mText2.setText(data2[position]);
+        // holder.mText2.setText(data2[position]);
         holder.mImage.setImageResource(images[position]);
 
         holder.houseDetails.setOnClickListener(view -> {
             Intent intent = new Intent(context, HouseDetails.class);
             intent.putExtra("data", data[position]);
-           // intent.putExtra("data2", data2[position]);
+            // intent.putExtra("data2", data2[position]);
             intent.putExtra("mImage", images[position]);
             context.startActivity(intent);
         });

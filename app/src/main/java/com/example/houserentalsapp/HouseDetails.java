@@ -20,8 +20,8 @@ public class HouseDetails extends AppCompatActivity {
         setContentView(R.layout.activity_house_details);
 
         imageDetail = findViewById(R.id.imgDetail);
-        title = (TextView) findViewById(R.id.textDetail1);
-        description =(TextView) findViewById(R.id.textDetail2);
+        title = findViewById(R.id.textDetail1);
+        description = findViewById(R.id.textDetail2);
 
         getData();
         setData();

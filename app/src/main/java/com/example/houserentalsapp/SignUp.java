@@ -1,69 +1,59 @@
 package com.example.houserentalsapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
-    EditText username,password,RePassword;
+    EditText userId,password,name;
     Button sgnIn_btn, AlreadySgnUp_btn;
-    //DBHelper myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username = (EditText) findViewById(R.id.RegUsername);
-        password = (EditText)findViewById(R.id.RegPassword);
+        userId = findViewById(R.id.RegUsername);
+        password = findViewById(R.id.RegPassword);
 
-        RePassword = (EditText) findViewById(R.id.RegRePassword);
+        name = findViewById(R.id.RegRePassword);
 
-        sgnIn_btn = (Button) findViewById(R.id.btnSignUp);
-        AlreadySgnUp_btn = (Button) findViewById(R.id.btnSignInReg);
+        sgnIn_btn = findViewById(R.id.btnSignUp);
+        AlreadySgnUp_btn = findViewById(R.id.btnSignInReg);
 
         sgnIn_btn.setOnClickListener(view -> {
-            Intent intent = new Intent(SignUp.this, MainActivity.class);
-                  startActivity(intent);
+            //creating Tenant Entity
+            final TenantEntity tenantEntity = new TenantEntity();
+            tenantEntity.setUserId(userId.getText().toString());
+            tenantEntity.setPassword(password.getText().toString());
+            tenantEntity.setName(name.getText().toString());
 
+            if (validateInput(tenantEntity)){
+
+                // do insert operation
+                TenantDatabase tenantDatabase = TenantDatabase.getTenantDatabase(getApplicationContext());
+                TenantDao tenantDao = tenantDatabase.tenantDao();
+
+                new Thread(() -> {
+                    //register tenant
+                    tenantDao.registerTenant(tenantEntity);
+
+                    runOnUiThread(() ->
+                            Toast.makeText(getApplicationContext(), "You are Registered", Toast.LENGTH_SHORT).show());
+                }).start();
+                //Intent intent = new Intent(SignUp.this, MainActivity.class);
+                //startActivity(intent);
+            }
+            else{
+                Toast.makeText(getApplicationContext(), "Fill all the fields", Toast.LENGTH_SHORT).show();
+            }
         });
-
-        //myDB = new DBHelper(this);
-
-//        sgnIn_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String user = username.getText().toString().trim();
-//                String pass = password.getText().toString().trim();
-//                String rePass  = RePassword.getText().toString().trim();
-//
-//                if (pass.equals(rePass)){
-//                    long val = myDB.addUser(user,pass);
-//
-//                    if (val>0){
-//                        //Toast.makeText(SignUp.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(SignUp.this, MainActivity.class);
-//                        startActivity(intent);
-//                    }
-//                    else{
-//                        Toast.makeText(SignUp.this, "Registration Error", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                else
-//                {
-//                    Toast.makeText(SignUp.this, "Password is not Matching", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-        AlreadySgnUp_btn.setOnClickListener(view -> {
-            Intent intent= new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-
-        });
-
+    }
+    private Boolean validateInput(TenantEntity tenantEntity){
+        return !tenantEntity.getUserId().isEmpty() && !tenantEntity.getPassword().isEmpty() &&
+                !tenantEntity.getName().isEmpty();
     }
 }
