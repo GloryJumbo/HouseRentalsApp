@@ -1,5 +1,6 @@
 package com.example.houserentalsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,8 +45,8 @@ public class SignUp extends AppCompatActivity {
                     runOnUiThread(() ->
                             Toast.makeText(getApplicationContext(), "You are Registered", Toast.LENGTH_SHORT).show());
                 }).start();
-                //Intent intent = new Intent(SignUp.this, MainActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SignUp.this, MainActivity.class);
+                startActivity(intent);
             }
             else{
                 Toast.makeText(getApplicationContext(), "Fill all the fields", Toast.LENGTH_SHORT).show();
