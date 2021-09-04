@@ -5,53 +5,55 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    EditText usernameLog, passwordLog;
+    EditText userId,password;
     Button signUp_btn, signIn_btnLog;
     TextView adminLink;
 
-    //DBHelper myDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        usernameLog = (EditText) findViewById(R.id.btnUsernameSgnIn);
-        passwordLog = (EditText)findViewById(R.id.btnPasswordSgIn);
+        userId = (EditText) findViewById(R.id.btnUsernameSgnIn);
+        password = (EditText)findViewById(R.id.btnPasswordSgIn);
         signIn_btnLog = (Button)findViewById(R.id.btnSignIn);
         signUp_btn = (Button) findViewById(R.id.btnSignUpSgn);
-
-        adminLink = findViewById(R.id.adminPaneLink);
-
-       // myDB = new DBHelper(this);
 
         signUp_btn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SignUp.class);
             startActivity(intent);
         });
         signIn_btnLog.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, CustomerPanel.class);
-               startActivity(intent);
+            String userIdText =userId.getText().toString();
+            String passwordText =password.getText().toString();
+
+            if (userIdText.isEmpty() || passwordText.isEmpty()){
+                Toast.makeText(getApplicationContext(), "Fill all the Fields", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                //perform query
+                TenantDatabase tenantDatabase = TenantDatabase.getTenantDatabase(getApplicationContext());
+                final TenantDao tenantDao = tenantDatabase.tenantDao();
+                new Thread(() -> {
+                    TenantEntity tenantEntity = tenantDao.btnSignIn(userIdText,passwordText);
+
+                    if (tenantEntity == null){
+                        runOnUiThread(() ->
+                                Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_SHORT).show());
+                    }else {
+                        Intent intent = new Intent(MainActivity.this, CustomerPanel.class);
+                        startActivity(intent);
+
+                    }
+                }).start();
+            }
         });
-//
-//        signIn_btnLog.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String user = usernameLog.getText().toString().trim();
-//                String pass = passwordLog.getText().toString().trim();
-//                boolean res = myDB.checkUser(user,pass);
-//                if (res == true) {
-//                    Intent intent = new Intent(MainActivity.this, CustomerPanel.class);
-//                    startActivity(intent);
-//                   // Toast.makeText(MainActivity.this, "Successfully Signed In", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(MainActivity.this, "Sign In Error", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        adminLink = findViewById(R.id.adminPaneLink);
         adminLink.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(),LoginAdminPanel.class);
              startActivity(intent);

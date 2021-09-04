@@ -52,6 +52,10 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Fill all the fields", Toast.LENGTH_SHORT).show();
             }
         });
+        AlreadySgnUp_btn.setOnClickListener(view -> {
+            Intent intent = new Intent(SignUp.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
     private Boolean validateInput(TenantEntity tenantEntity){
         return !tenantEntity.getUserId().isEmpty() && !tenantEntity.getPassword().isEmpty() &&
