@@ -47,7 +47,7 @@
                 android:id="@+id/textRow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/description"
+                android:text="@string/contact_0888104772"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textRow1"
                 app:layout_constraintTop_toBottomOf="@+id/textRow1" />

@@ -30,6 +30,19 @@
     <string name="this_is_where_the_admin_will_upload_house_information_for_tenants_view_so_am_still_processing_it">This is where the admin will upload house information for tenants view so am still processing it</string>
     <string name="we_are_here_for_you_everywhere_you_are">We are here for you everywhere you are!!!</string>
     <string name="apartments">APARTMENTS</string>
+    <string name="welcome_landlord">welcome LandLord</string>
+    <string name="upload_your_house_details">Upload your House Details</string>
+    <string name="price">Price</string>
+    <string name="phone_number">Phone number</string>
+    <string name="location">Location</string>
+    <string name="choose_image">choose image</string>
+    <string name="add_details">add details</string>
+    <string name="check_house_list">Check house list</string>
+    <string name="todo">TODO</string>
+    <string name="lastest_apartments">Lastest Apartments</string>
+    <string name="latest_apartments">Latest Apartments</string>
+    <string name="_0881049728">0881049728</string>
+    <string name="contact_0888104772">Contact : 0888104772</string>
     <string-array name="house_list">
         <item>Location: Matawale</item>
         <item>Location: Jali</item>
